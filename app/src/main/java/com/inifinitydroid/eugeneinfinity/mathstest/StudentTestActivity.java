@@ -34,7 +34,6 @@ public class StudentTestActivity extends AppCompatActivity {
         }catch (Exception e){
             Log.d("exp", e.toString());
         }
-
-
+    
     }
 }

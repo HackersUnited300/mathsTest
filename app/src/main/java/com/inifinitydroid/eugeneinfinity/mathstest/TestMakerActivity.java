@@ -103,114 +103,114 @@ public class TestMakerActivity extends AppCompatActivity {
         etAddAnswerSelection2.setText("");
         etAddAnswerSelection3.setText("");
     }
-    private void initViews() {
-        etAddQuestion.addTextChangedListener(textWatcher1);
-        etAddAnswer.addTextChangedListener(textWatcher2);
-        etAddAnswerSelection1.addTextChangedListener(textWatcher3);
-        etAddAnswerSelection2.addTextChangedListener(textWatcher4);
-        etAddAnswerSelection3.addTextChangedListener(textWatcher5);
-    }
-
-    private TextWatcher textWatcher1 = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        private void initViews() {
+            etAddQuestion.addTextChangedListener(textWatcher1);
+            etAddAnswer.addTextChangedListener(textWatcher2);
+            etAddAnswerSelection1.addTextChangedListener(textWatcher3);
+            etAddAnswerSelection2.addTextChangedListener(textWatcher4);
+            etAddAnswerSelection3.addTextChangedListener(textWatcher5);
         }
 
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            tvPreviewQuestion.setText(charSequence);
-        }
+        private TextWatcher textWatcher1 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
-        @Override
-        public void afterTextChanged(Editable editable) {
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                tvPreviewQuestion.setText(charSequence);
+            }
 
-        }
-    };
-    private TextWatcher textWatcher2 = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            rbSelection1.setText(charSequence);
-        }
+            }
+        };
+        private TextWatcher textWatcher2 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
-        @Override
-        public void afterTextChanged(Editable editable) {
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                rbSelection1.setText(charSequence);
+            }
 
-        }
-    };
-    private TextWatcher textWatcher3 = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            rbSelection2.setText(charSequence);
-        }
+            }
+        };
+        private TextWatcher textWatcher3 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
-        @Override
-        public void afterTextChanged(Editable editable) {
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                rbSelection2.setText(charSequence);
+            }
 
-        }
-    };
-    private TextWatcher textWatcher4 = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            rbSelection3.setText(charSequence);
-        }
+            }
+        };
+        private TextWatcher textWatcher4 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
-        @Override
-        public void afterTextChanged(Editable editable) {
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                rbSelection3.setText(charSequence);
+            }
 
-        }
-    };
-    private TextWatcher textWatcher5 = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            rbSelection4.setText(charSequence);
-        }
+            }
+        };
+        private TextWatcher textWatcher5 = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
-        @Override
-        public void afterTextChanged(Editable editable) {
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                rbSelection4.setText(charSequence);
+            }
 
-        }
-    };
-    private Validator.ValidationListener validationListener = new Validator.ValidationListener() {
-        @Override
-        public void onValidationSucceeded() {
-            testmakerModel = new TestMakerModel(etAddQuestion.getText().toString(), etAddAnswer.getText().toString(), etAddAnswerSelection1.getText().toString(), etAddAnswerSelection2.getText().toString(), etAddAnswerSelection3.getText().toString());
-            String json = testmakerModel.serializeToJson(testmakerModel);
-            Log.d("json question", ""+json);
-        }
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-        @Override
-        public void onValidationFailed(List<ValidationError> errors) {
-            for (ValidationError error : errors) {
-                View view = error.getView();
-                String message = error.getCollatedErrorMessage(TestMakerActivity.this);
-                // Display error messages ;)
-                if (view instanceof EditText) {
-                    ((EditText) view).setError(message);
-                } else {
-                    Toast.makeText(TestMakerActivity.this, message, Toast.LENGTH_LONG).show();
+            }
+        };
+        private Validator.ValidationListener validationListener = new Validator.ValidationListener() {
+            @Override
+            public void onValidationSucceeded() {
+                testmakerModel = new TestMakerModel(etAddQuestion.getText().toString(), etAddAnswer.getText().toString(), etAddAnswerSelection1.getText().toString(), etAddAnswerSelection2.getText().toString(), etAddAnswerSelection3.getText().toString());
+                String json = testmakerModel.serializeToJson(testmakerModel);
+                Log.d("json question", ""+json);
+            }
+
+            @Override
+            public void onValidationFailed(List<ValidationError> errors) {
+                for (ValidationError error : errors) {
+                    View view = error.getView();
+                    String message = error.getCollatedErrorMessage(TestMakerActivity.this);
+                    // Display error messages ;)
+                    if (view instanceof EditText) {
+                        ((EditText) view).setError(message);
+                    } else {
+                        Toast.makeText(TestMakerActivity.this, message, Toast.LENGTH_LONG).show();
+                    }
                 }
             }
-        }
-    };
+        };
 
-    @Override
-    protected void onDestroy() {
+        @Override
+        protected void onDestroy() {
         unbinder.unbind();
         super.onDestroy();
     }
